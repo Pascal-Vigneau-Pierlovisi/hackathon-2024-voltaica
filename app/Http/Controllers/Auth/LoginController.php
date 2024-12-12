@@ -19,7 +19,7 @@ class LoginController extends Controller
         // Tentative de connexion
         if (Auth::attempt($request->only('username', 'password'))) {
             // Rediriger après connexion réussie
-            return redirect()->intended('/dashboard');
+            return redirect()->intended('/login');
         }
 
         // Si la connexion échoue
