@@ -8,3 +8,4 @@ use App\Http\Controllers\Auth\LogoutController;
 Route::get('/login', ShowLoginController::class)->name('login');
 
 Route::post('/login', LoginController::class);
+
