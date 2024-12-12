@@ -14,12 +14,12 @@
 @include('navbar')
 
 <!-- Main Content -->
-<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+<main class="">
     @yield('content')
 </main>
 
 <!-- Footer -->
-<footer class="bg-gray-800 text-white mt-12">
+<footer class=" text-black mt-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center">
         &copy; {{ date('Y') }} Mon Application. Tous droits réservés.
     </div>
