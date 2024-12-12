@@ -10,6 +10,8 @@ class Grade extends Model
         'libelle',
     ];
 
+    public $timestamps = false;
+
     public function caffs()
     {
         return $this->hasMany(Caff::class);

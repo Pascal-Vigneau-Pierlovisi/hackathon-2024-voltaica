@@ -32,6 +32,8 @@ class Caff extends Authenticatable implements AuthenticatableContract
         'remember_token',
     ];
 
+    public $timestamps = false;
+
     // Relation pour le manager
     public function manager()
     {

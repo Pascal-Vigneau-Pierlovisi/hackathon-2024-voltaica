@@ -17,4 +17,6 @@ class Client extends Model
         'telephone',
         'nom_entreprise',
     ];
+
+    public $timestamps = false;
 }
