@@ -15,7 +15,7 @@ class CaffSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
+        $faker = Faker::create('fr_FR');;
         
         // Créer le Caff de grade 5
         $manager = Caff::create([
