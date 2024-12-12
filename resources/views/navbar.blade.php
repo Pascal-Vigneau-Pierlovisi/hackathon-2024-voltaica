@@ -56,20 +56,11 @@
                 <li>
                     <a href="/" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white " aria-current="page">Home</a>
                 </li>
-                <li>
-                    <a href="/about" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white ">About</a>
-                </li>
-                <li>
-                    <a href="/services" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white ">Services</a>
-                </li>
                 @auth
                     <li>
                         <a href="/pricing" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white ">Pricing</a>
                     </li>
                 @endauth
-                <li>
-                    <a href="/contact" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white ">Contact</a>
-                </li>
             </ul>
         </div>
     </div>
