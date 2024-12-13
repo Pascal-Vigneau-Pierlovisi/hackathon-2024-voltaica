@@ -9,13 +9,6 @@ class Dossier extends Model
     protected $fillable = [
         'id_client',
         'id_caff',
-        'localisation',
-        'superficie',
-        'irradiance',
-        'points_gps',
-        'raccordement',
-        'type',
-        'type_construction',
         'apporteur_affaire',
         'puissance_estimee',
         'status',
