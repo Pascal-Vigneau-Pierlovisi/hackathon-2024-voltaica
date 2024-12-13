@@ -92,3 +92,36 @@ function eligibiliteMLM($caffId)
 
     return $totalPower >= $quota;
 }
+
+
+// 3. Calcul des revenus MLM par niveau de grade
+function calculateMLMRevenuesByLevel($caffId)
+{
+    if (!eligibiliteMLM($caffId)) {
+        return 0;
+    }
+    $managedCaffs = getManagedCaffs($caffId);
+    $commissionRates = [1 => 0.07, 2 => 0.03, 3 => 0.01, 4 => 0.005];
+    $revenuesByLevel = [];
+
+    foreach ($managedCaffs as $managedCaff) {
+        $levelDifference = $managedCaff->niveau - Caff::find($caffId)->niveau;
+        if (isset($commissionRates[$levelDifference])) {
+            $projects = getDossiersByCaffIdForMlm($managedCaff->id);
+
+            foreach ($projects as $project) {
+                $projectRevenue = $project->apporteur_affaire 
+                    ? 25 * $project->puissance_estimee 
+                    : 20 * $project->puissance_estimee;
+                
+                if (!isset($revenuesByLevel[$levelDifference])) {
+                    $revenuesByLevel[$levelDifference] = 0;
+                }
+
+                $revenuesByLevel[$levelDifference] += $projectRevenue * $commissionRates[$levelDifference];
+            }
+        }
+    }
+
+    return $revenuesByLevel;
+}
