@@ -23,13 +23,6 @@ return new class extends Migration
             $table->foreign('id_caff')->references('id')->on('caff')->onDelete('cascade');
 
             // Colonnes supplémentaires
-            $table->string('localisation');
-            $table->double('superficie');
-            $table->double('irradiance'); // Quantité d'énergie solaire reçue par unité de surface (kWh/m²)
-            $table->string('points_gps');
-            $table->double('raccordement'); // Distance pour le raccordement
-            $table->enum('type', ['Rénovation', 'Construction']);
-            $table->string('type_construction')->nullable();
             $table->boolean('apporteur_affaire');
             $table->integer('puissance_estimee'); // Puissance estimée en kWc
             $table->enum('status', ['En cours', 'Abandonné', 'Etabli']);
