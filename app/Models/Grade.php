@@ -8,6 +8,7 @@ class Grade extends Model
 {
     protected $fillable = [
         'libelle',
+        'quota'
     ];
 
     public $timestamps = false;

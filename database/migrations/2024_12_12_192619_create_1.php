@@ -16,6 +16,7 @@ class create1 extends Migration
         Schema::create('grades', function (Blueprint $table) {
             $table->id(); // Colonne 'id'
             $table->string('libelle'); // Colonne 'libelle'
+            $table->int('quota'); // Colonne quota
         });
     }
 
