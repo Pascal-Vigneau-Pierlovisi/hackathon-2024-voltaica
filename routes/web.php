@@ -1,11 +1,14 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\ShowLoginController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Controllers\DashboardControlleur;
+use App\Http\Controllers\Auth\ShowLoginController;
+use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\AnnuaireController;
+use App\Http\Controllers\Tree\TreeController;
+
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/hash-password', function (Illuminate\Http\Request $request) {
     $password = $request->input('password');
@@ -24,4 +27,8 @@ Route::post('/login', LoginController::class);
 
 Route::post('/logout', LogoutController::class);
 
-Route::get('/dashboard', DashboardControlleur::class);
+Route::get('/dashboard', DashboardController::class);
+
+Route::get('/collaborateurs', AnnuaireController::class)->name('collaborateurs');
+
+Route::get('/hierarchie', TreeController::class)->name('tree')->middleware('auth');
