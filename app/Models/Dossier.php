@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dossier extends Model
 {
+    protected $table = 'dossier';
     protected $fillable = [
         'id_client',
         'id_caff',

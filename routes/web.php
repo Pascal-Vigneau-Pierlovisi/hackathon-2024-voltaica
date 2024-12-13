@@ -28,7 +28,3 @@ Route::post('/login', LoginController::class);
 Route::post('/logout', LogoutController::class);
 
 Route::get('/dashboard', DashboardController::class);
-
-Route::get('/collaborateurs', AnnuaireController::class)->name('collaborateurs');
-
-Route::get('/hierarchie', TreeController::class)->name('tree')->middleware('auth');
