@@ -4,8 +4,8 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\ShowLoginController;
 use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\Dashboard\AnnuaireController;
-use App\Http\Controllers\Tree\TreeController;
+
+use App\Toolbox\calcul_projet;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
@@ -28,3 +28,22 @@ Route::post('/login', LoginController::class);
 Route::post('/logout', LogoutController::class);
 
 Route::get('/dashboard', DashboardController::class);
+
+
+
+Route::get('/test-revenus/{userId}', function ($userId) {
+    // Appeler la fonction pour calculer les revenus
+    $revenus = calcul_projet::calculerRevenus($userId);
+
+    // Retourner le résultat au format JSON
+    return response()->json($revenus);
+});
+
+
+Route::get('/test-revenus-previ/{userId}', function ($userId) {
+    // Appeler la fonction pour calculer les revenus
+    $revenus = calcul_projet::calculerRevenusPrevi($userId);
+
+    // Retourner le résultat au format JSON
+    return response()->json($revenus);
+});
