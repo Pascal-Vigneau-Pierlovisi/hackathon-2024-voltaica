@@ -29,7 +29,7 @@ class DossierSeeder extends Seeder
         }
 
         for ($i = 0; $i < 90; $i++) {
-            $dateSignature = $faker->optional(0.8)->dateTimeBetween('-1 year', 'now');
+            $dateSignature = $faker->optional(0.8)->dateTimeBetween('-3 months', 'now');
             $dateCompletude = $dateSignature ? $faker->optional(0.7)->dateTimeBetween($dateSignature, 'now +6 months') : null;
 
             $status = 'Abandonné';
