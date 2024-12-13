@@ -34,6 +34,9 @@ function getManagedCaffs($caffId)
 // 3. Calcul des revenus MLM filtrés par mois
 function calculateMonthlyMLMRevenues($caffId)
 {
+    if (!eligibiliteMLM($caffId)) {
+        return 0;
+    }
     $managedCaffs = getManagedCaffs($caffId);
     $commissionRates = [1 => 0.07, 2 => 0.03, 3 => 0.01, 4 => 0.005];
     $monthlyRevenues = array_fill(1, 12, 0);
@@ -56,7 +59,6 @@ function calculateMonthlyMLMRevenues($caffId)
             }
         }
     }
-
     return $monthlyRevenues;
 }
 
@@ -76,4 +78,17 @@ function getNextTwelveMonths()
         $months[] = $date->format('m-Y');
     }
     return $months;
+}
+
+// 6. Vérification de l'éligibilité MLM
+function eligibiliteMLM($caffId)
+{
+    $currentYearProjects = Dossier::where('id_caff', $caffId)
+        ->whereYear('date_signature_pdb', now()->year)
+        ->get();
+
+    $totalPower = $currentYearProjects->sum('puissance_estimee');
+    $quota = Caff::find($caffId)->grade->quota;
+
+    return $totalPower >= $quota;
 }
