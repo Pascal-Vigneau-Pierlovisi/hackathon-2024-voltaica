@@ -33,6 +33,8 @@ return new class extends Migration
             $table->boolean('apporteur_affaire');
             $table->integer('puissance_estimee'); // Puissance estimée en kWc
             $table->enum('status', ['En cours', 'Abandonné', 'Etabli']);
+            $table->date('date_completude')->nullable();
+            $table->date('date_signature')->nullable();
         });
     }
 
