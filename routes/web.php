@@ -33,24 +33,24 @@ Route::get('/dashboard', DashboardController::class);
 
 
 
-/*Route::get('/test-revenus/{userId}', function ($userId) {
+Route::get('/test-revenus/{userId}', function ($userId) {
     // Appeler la fonction pour calculer les revenus
     $revenus = calcul_projet::calculerRevenus($userId);
 
     // Retourner le résultat au format JSON
     return response()->json($revenus);
-});*/
+});
 
-/*
+
 Route::get('/test-revenus-previ/{userId}', function ($userId) {
     // Appeler la fonction pour calculer les revenus
     $revenus = calcul_projet::calculerRevenusPrevi($userId);
 
     // Retourner le résultat au format JSON
     return response()->json($revenus);
-});*/
+});
 
-
+/*
 // 1. Retourner l'ensemble des dossiers en fonction de critères spécifiques
 Route::get('/test-dossiers/{caffId}', function ($caffId) {
     $dossiers = calcul_mlm::getDossiersByCaffIdForMlm($caffId);
@@ -91,4 +91,4 @@ Route::get('/test-eligibility/{caffId}', function ($caffId) {
 Route::get('/test-revenues-by-level/{caffId}', function ($caffId) {
     $revenuesByLevel = calcul_mlm::calculateMLMRevenuesByLevel($caffId);
     return response()->json($revenuesByLevel);
-});
+});*/

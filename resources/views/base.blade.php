@@ -14,7 +14,7 @@
 @include('navbar')
 
 <!-- Main Content -->
-<main class="">
+<main class="dark:bg-gray-900 h-[93vh]">
     @yield('content')
 </main>
 
